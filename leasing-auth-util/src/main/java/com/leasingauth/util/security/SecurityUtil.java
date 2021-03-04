@@ -66,6 +66,8 @@ public class SecurityUtil {
     public static final String PARAMETER_CUSTOMER_WEB_SITE = "customer_web_site";
     public static final String PARAMETER_SCOPES = "scopes";
 
+    public static final String KEY_TEST = "GFDGSFGSDFG";
+
     // Default domain
 //    public static final String END_POINT_REST_SERVICES = "http://localhost:8082/api/v1";
 

@@ -1,0 +1,77 @@
+buildscript {
+    repositories {
+        jcenter()
+        dependencies {
+            classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: 'latest.release')
+        }
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.4.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id "com.jfrog.artifactory" version "4.4.18"
+    id 'maven'
+}
+
+group = 'com.leasingauth.util'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'org.passay', name: 'passay', version: '1.6.0'
+    implementation 'org.apache.commons:commons-lang3'
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+artifactory {
+    contextUrl = "${artifactory_contextUrl}"
+    publish {
+        repository {
+            repoKey = 'gradle-leasing-util-local'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true
+        }
+        defaults {
+            publishConfigs('archives', 'published')
+            properties = ['qa.level': 'basic', 'dev.team': 'core']
+            properties {
+                all '*:*:1.*:*@*', key1: 'val1', key2: 'val2'
+                all 'org.jfrog.*:*:1.*:*@jar*', key3: 'val3', key4: 'val4'
+            }
+            publishPom = true // Publish generated POM files to Artifactory (true by default)
+            publishBuildInfo = true   //Publish build-info to Artifactory (true by default)
+            publishArtifacts = true   //Publish artifacts to Artifactory (true by default)
+        }
+    }
+    resolve {
+        repository {
+            repoKey = 'gradle-leasing-util-virtual'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true
+        }
+    }
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
+
+test {
+    useJUnitPlatform()
+}

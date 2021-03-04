@@ -67,9 +67,12 @@ public class SecurityUtil {
     public static final String PARAMETER_SCOPES = "scopes";
 
     public static final String KEY_TEST = "GFDGSFGSDFG";
+    public static final String KEY_TEST_v2 = "GFDGSFGSDFG";
+    public static final String KEY_TEST_v3 = "GFDGSFGSDFG-hjkhjhkjh";
+    public static final String KEY_TEST_v4 = "GFDGSFGSDFG-hjkhjhkjh";
 
     // Default domain
-//    public static final String END_POINT_REST_SERVICES = "http://localhost:8082/api/v1";
+    // public static final String END_POINT_REST_SERVICES = "http://localhost:8082/api/v1";
 
     // White list
     public static String[] AUTH_WHITELIST_DEFAULT() {

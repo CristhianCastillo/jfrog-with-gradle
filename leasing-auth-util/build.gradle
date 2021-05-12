@@ -16,7 +16,7 @@ plugins {
 }
 
 group = 'com.leasingauth.util'
-version = '0.0.2-SNAPSHOT'
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {

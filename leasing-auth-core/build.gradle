@@ -39,8 +39,8 @@ dependencies {
 	//compile(group: 'com.leasingauth.util', name: 'leasing-auth-util', version: '0.0.2-SNAPSHOT')
 	//compile(group: 'com.leasingauth.util', name: 'leasing-auth-util', version: '0.0.2-20210304.203654-2')
 	//compile(group: 'com.leasingauth.util', name: 'leasing-auth-util', version: '0.0.2-20210304.235805-1')ç
-	compile(group: 'com.leasingauth.exception', name: 'leasing-auth-exception', version: '0.0.1-20210305.003933-1')
-	compile(group: 'com.leasingauth.util', name: 'leasing-auth-util', version: '0.0.2-20210305.003905-1')
+	compile(group: 'com.leasingauth.exception', name: 'leasing-auth-exception', version: '0.0.1-SNAPSHOT')
+	compile(group: 'com.leasingauth.util', name: 'leasing-auth-util', version: '0.0.1-SNAPSHOT')
 }
 
 test {
